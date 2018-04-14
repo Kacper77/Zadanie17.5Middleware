@@ -23,12 +23,30 @@ app.use('/store', function(req, res, next) {
     next();
 });
 
+app.use('/nick', function(req, res, next) {
+    console.log('Jestem pośrednikiem przy żądaniu do /nick');
+    next();
+});
+
+app.use('/pin', function(req, res, next) {
+    console.log('Jestem pośrednikiem przy żądaniu do /pin');
+    next();
+});
+
 app.get('/', function(req, res) {
     res.send('Hello world!');
 });
 
 app.get('/store', function(req, res) {
     res.send('To jest sklep');
+});
+
+app.get('/nick', function(req, res) {
+    res.send('Podaj nick');
+});
+
+app.get('/pin', function(req, res) {
+    res.send('Podaj pin');
 });
 
 app.listen(3000);
